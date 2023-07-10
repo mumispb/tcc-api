@@ -8,33 +8,13 @@ import requests as rq
 app = Flask(__name__)
 api = Api(app)
 parser = reqparse.RequestParser()
-STUDENTS = {
-    '1': {'name': 'Mark', 'age': 23, 'spec': 'math'},
-    '2': {'name': 'Jane', 'age': 20, 'spec': 'biology'},
-    '3': {'name': 'Peter', 'age': 21, 'spec': 'history'},
-    '4': {'name': 'Kate', 'age': 22, 'spec': 'science'},
-}
 
 image_size = (180, 180)
 model = keras.models.load_model('assets/test_save_2')
 # keras.utils.plot_model(model, show_shapes=True)
 
 
-class StudentsList(Resource):
-    def post(self):
-        parser.add_argument("name")
-        parser.add_argument("age")
-        parser.add_argument("spec")
-        args = parser.parse_args()
-        student_id = int(max(STUDENTS.keys())) + 1
-        student_id = '%i' % student_id
-        STUDENTS[student_id] = {
-            "name": args["name"],
-            "age": args["age"],
-            "spec": args["spec"],
-        }
-        return STUDENTS[student_id], 201
-
+class Evaluate(Resource):
     def get(self):
         response = rq.get(
             "https://expouploads231250-dev.s3.sa-east-1.amazonaws.com/public/demo.jpg")
@@ -62,6 +42,6 @@ class StudentsList(Resource):
         }
 
 
-api.add_resource(StudentsList, '/students/')
+api.add_resource(Evaluate, '/evaluate/')
 if __name__ == "__main__":
     app.run(debug=True)
