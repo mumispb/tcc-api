@@ -17,9 +17,9 @@ pip3 install tensorflow Flask flask_restful requests
 
 Para executar o código, basta executar o seguinte comando:
 
-    ```bash
-    # Executar o código
-    python3 main.py
-    ```
+```bash
+# Executar o código
+python3 main.py
+```
 
 O código irá executar um servidor na porta 5000. Para acessar a API, basta acessar o endereço http://localhost:5000.
