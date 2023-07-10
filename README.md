@@ -7,7 +7,7 @@ Para executar este código, é necessário instalar o Python e as dependências 
 sudo apt install python3
 ```
 
-O gerenciador de bibliotecas pip3 instalará junto do Python. Para instalar as dependências, execute o seguinte comando:
+O gerenciador de bibliotecas pip3 será instalado junto do Python. Para instalar as dependências, execute o seguinte comando:
 
 ```bash
 # Instalar as dependências
